@@ -1,0 +1,34 @@
+class Dog
+ attr_accessor :name, :breed, :owner
+
+  def owner=(owner)
+    @owner = owner
+    owner.pet << self.name
+  end
+
+end
+
+class Owner
+  attr_accessor :name, :pet
+
+  def initialize
+   @pet_array = @pet = []
+  end
+
+  def pets
+   @pet_array.each {|name| puts name}
+  end
+
+end
+
+
+laura = Owner.new
+laura.name = "Laura"
+
+coda = Dog.new
+coda.name = "Coda"
+coda.owner = laura
+
+bagel = Dog.new
+bagel.name = "Bagel"
+bagel.owner = laura
